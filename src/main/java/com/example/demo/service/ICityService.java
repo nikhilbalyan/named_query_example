@@ -8,4 +8,6 @@ public interface ICityService {
 	List<City> findAllOrderedByNameDescending();
 
 	List<City> saveAllCity(List<City> cities);
+	
+	City save(City city);
 }
