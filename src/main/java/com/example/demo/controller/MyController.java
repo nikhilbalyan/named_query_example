@@ -2,10 +2,13 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.City;
@@ -16,6 +19,8 @@ public class MyController {
 
 	@Autowired
 	private ICityService cityService;
+	
+	
 	
 //	@GetMapping("/showCities")
 	@RequestMapping(value = "/showCities", method = RequestMethod.GET)
@@ -29,6 +34,14 @@ public class MyController {
 	public City saveSingleCity(@RequestBody City city) {
 		City cities =  cityService.save(city);
 		return cities;
+	}
+	
+	@RequestMapping(value= "/fetchSingleCity", method = RequestMethod.GET)
+	public City fetchSingleCity(@RequestParam String cityName) {
+		City city = cityService.findAllByProductName(cityName);
+//		cityService.
+		
+		return city;
 	}
 	
 }

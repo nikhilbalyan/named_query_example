@@ -10,4 +10,6 @@ public interface ICityService {
 	List<City> saveAllCity(List<City> cities);
 	
 	City save(City city);
+	
+	City findAllByProductName(String cityName);
 }

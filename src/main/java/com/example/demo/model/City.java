@@ -11,15 +11,21 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
-@Entity
-@Table(name = "cities")
+
 //@NamedQuery(name = "City.findAllOrderedByNameDescending",
 //query = "SELECT c FROM City c ORDER BY c.name DESC")
-@org.hibernate.annotations.NamedQueries({
-  @org.hibernate.annotations.NamedQuery(name = "@City_findAllByProductName", 
-    query = "SELECT c FROM City c where name = :name"),
-  @org.hibernate.annotations.NamedQuery(name = "@City_findAllOrderedByNameDescending", 
-  query = "SELECT c FROM City c ORDER BY c.name DESC")})
+//@org.hibernate.annotations.NamedQueries({
+//  @org.hibernate.annotations.NamedQuery(name = "@City_findAllByProductName", 
+//    query = "SELECT c FROM City c where name = :name"),
+//  @org.hibernate.annotations.NamedQuery(name = "@City_findAllOrderedByNameDescending", 
+//  query = "SELECT c FROM City c ORDER BY c.name DESC")})
+
+@Entity
+@Table(name = "cities")
+@NamedQuery(name = "City.findAllOrderedByNameDescending",
+query = "SELECT c FROM City c ORDER BY c.name DESC")
+@NamedQuery(name = "City.findAllByProductName",
+query = "SELECT c FROM City c where c.name LIKE :cityName")
 public class City {
 
 	@Id

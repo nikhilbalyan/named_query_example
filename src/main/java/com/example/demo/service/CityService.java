@@ -20,6 +20,8 @@ public class CityService implements ICityService {
 		return cities;
 	}
 	
+	
+	
 	@Override
 	public List<City> saveAllCity(List<City> cities) {
 		List<City> cities1 = (List<City>) repository.saveAll(cities);
@@ -30,6 +32,12 @@ public class CityService implements ICityService {
 	public City save(City city) {
 		City savedCity = repository.save(city);
 		return savedCity;
+	}
+	
+	@Override
+	public City findAllByProductName(String cityName) {
+		City fetchCity = repository.findAllByProductName(cityName);
+		return fetchCity;
 	}
 
 }

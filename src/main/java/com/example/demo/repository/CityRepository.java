@@ -10,4 +10,5 @@ import com.example.demo.model.City;
 @Repository
 public interface CityRepository extends CrudRepository<City, Long> {
 	List<City> findAllOrderedByNameDescending();
+	City findAllByProductName(String cityName);
 }
